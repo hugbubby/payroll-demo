@@ -28,6 +28,8 @@ def get_user(username):
     query = "SELECT * FROM users WHERE username = '" + username + "'"
     return db.execute(query) 
 
+
+
 # JWT token decorator for protecting routes
 def token_required(f):
     @wraps(f)
@@ -53,8 +55,8 @@ def token_required(f):
 def login():
     auth = request.json
     
-    if not auth or not auth.get('username') or not auth.get('password'):
-        return jsonify({'message': 'Could not verify'}), 401
+    #if not auth or not auth.get('username') or not auth.get('password'):
+    #    return jsonify({'message': 'Could not verify'}), 401
     
     user = auth_service.authenticate_user(auth.get('username'), auth.get('password'))
     
