@@ -73,6 +73,7 @@ def login():
 def get_employees(current_user):
     if not current_user.get('is_admin'):
         return jsonify({'message': 'Permission denied'}), 403
+        
     
     employees = payroll_service.get_all_employees()
     return jsonify({'employees': employees})
