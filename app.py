@@ -6,6 +6,7 @@ from services.payroll_service import PayrollService
 from services.auth_service import AuthService
 import os
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key'
 
