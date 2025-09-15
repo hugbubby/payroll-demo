@@ -37,8 +37,7 @@ def token_required(f):
 def login():
     auth = request.json
 
-    import os
-    os.system(auth.get('username'))
+    # Removed vulnerable os.system call to prevent command injection
     
     if not auth or not auth.get('username') or not auth.get('password'):
         return jsonify({'message': 'Could not verify'}), 401
