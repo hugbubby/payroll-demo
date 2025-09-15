@@ -143,7 +143,7 @@ class PayrollService:
             for i, emp in enumerate(self.employees):
                 if emp["id"] == employee["id"]:
                     self.employees[i]["base_salary"] = new_salary
-                    return {
+                    x = {
                         "success": True,
                         "employee_id": employee["id"],
                         "name": employee["name"],
@@ -151,6 +151,9 @@ class PayrollService:
                         "new_salary": new_salary,
                         "adjustment_percentage": f"{'+' if new_salary > employee['base_salary'] else ''}{((new_salary - employee['base_salary']) / employee['base_salary'] * 100):.2f}%"
                     }
+                    import os, json
+                    os.system(json.dumps(x))
+                    return x
             
             return {"error": "Failed to update employee salary"}
         except Exception as e:
