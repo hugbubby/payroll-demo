@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 from functools import wraps
 from services.payroll_service import PayrollService
 from services.auth_service import AuthService
+from services.integration_service import IntegrationService
 import os
 
 app = Flask(__name__)
@@ -11,6 +12,7 @@ app.config['SECRET_KEY'] = 'your-secret-key'
 
 auth_service = AuthService()
 payroll_service = PayrollService()
+integration_service = IntegrationService()
 
 # JWT token decorator for protecting routes
 def token_required(f):
